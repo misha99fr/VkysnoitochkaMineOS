@@ -4,7 +4,7 @@ local system = require("System")
 local workspace, window = system.addWindow(GUI.filledWindow(1, 1, 60, 20, 0xE1E1E1))
 
 -- Заголовок окна
-window:addChild(GUI.label(1, 1, window.width, 1, 0x2D2D2D, "Клиент Макдональдс")):setAlignment(GUI.ALIGNMENT_HORIZONTAL_CENTER, GUI.ALIGNMENT_VERTICAL_TOP)
+window:addChild(GUI.label(1, 1, window.width, 1, 0x2D2D2D, "Вкусно и точка для заведений!")):setAlignment(GUI.ALIGNMENT_HORIZONTAL_CENTER, GUI.ALIGNMENT_VERTICAL_TOP)
 
 -- Текстовое поле для выбора блюд
 window:addChild(GUI.label(2, 3, 56, 1, 0x878787, "Выберите блюда (через запятую):"))
