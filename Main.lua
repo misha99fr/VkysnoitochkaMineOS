@@ -10,7 +10,7 @@ window:addChild(GUI.label(1, 1, window.width, 1, 0x2D2D2D, "Клиент Мак�
 window:addChild(GUI.label(2, 3, 56, 1, 0x878787, "Выберите блюда (через запятую):"))
 
 -- Поле ввода для выбора блюд
-local dishesInput = window:addChild(GUI.input(2, 4, 56, 3, 0xFFFFFF, 0x787878, 0xCCCCCC, 0x2D2D2D, 0xFFFFFF, "", "Например: 1, 3, 5"))
+local dishesInput = window:addChild(GUI.input(2, 4, 56, 3, 0xFFFFFF, 0x787878, 0xCCCCCC, 0x2D2D2D, 0xFFFFFF, "", "Например: бургер, картошка фри, кока-кола"))
 
 -- Кнопка для отправки заказа
 local orderButton = window:addChild(GUI.roundedButton(23, 8, 14, 3, 0xCCCCCC, 0x2D2D2D, 0xAAAAAA, 0x2D2D2D, "Заказать"))
@@ -30,22 +30,22 @@ local function calculatePrice(dishes)
     local price = 0
     local selectedDishes = {}
     
-    for dish in string.gmatch(dishes, "%d") do
-        dish = tonumber(dish)
-        if dish == "бургер" or dish == "бургер" or dish == "бургер" then
+    for dish in string.gmatch(dishes, "[^,]+") do
+        dish = dish:lower():gsub("^%s*(.-)%s*$", "%1")  -- Убираем пробелы и переводим в нижний регистр
+        if dish == "бургер" or dish == "картошка фри" or dish == "кока-кола" then
             table.insert(selectedDishes, dish)
         end
     end
     
-    if #selectedDishes == 3 and table.concat(selectedDishes, ",") == "бургер,картошка,хуй" then
+    if #selectedDishes == 3 and table.concat(selectedDishes, ",") == "бургер,картошка фри,кока-кола" then
         price = 1200
     else
         for _, dish in ipairs(selectedDishes) do
             if dish == "бургер" then
                 price = price + 40
-            elseif dish == "бургер" then
+            elseif dish == "картошка фри" then
                 price = price + 500
-            elseif dish == "бургер" then
+            elseif dish == "кока-кола" then
                 price = price + 400
             end
         end
