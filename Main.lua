@@ -21,7 +21,7 @@ local dishesInput = window:addChild(GUI.input(2, 4, 56, 3, 0xFFFFFF, 0x787878, 0
 local orderButton = window:addChild(GUI.roundedButton(23, 8, 14, 3, 0xCCCCCC, 0x2D2D2D, 0xAAAAAA, 0x2D2D2D, "Заказать"))
 
 -- Текстовое поле для вывода номера заказа и цены
-local orderNumberText = window:addChild(GUI.textBox(2, 12, 56, 6, 0xE1E1E1, 0x2D2D2D, {"Нажмите кнопку для получения номера заказа и цены"}, 1, 0, 0))
+local orderNumberText = window:addChild(GUI.textBox(2, 12, 56, 6, 0xE1E1E1, 0x2D2D2D, {"Нажмите кнопку для получения номера заказа и цены и сообщите всю информацию покупателю"}, 1, 0, 0))
 
 workspace:draw()
 
